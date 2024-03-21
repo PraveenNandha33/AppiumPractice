@@ -6,7 +6,6 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.DeviceRotation;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
@@ -158,6 +157,18 @@ public class AppTest extends TestBase {
         driver.findElement(By.id("android:id/button1")).click();
 
     }
-    
+
+    @Test
+    public void appiumActivity(){
+
+        javascriptExecutor.executeScript("mobile: startActivity",ImmutableMap.of("intent","io.appium.android.apis/io.appium.android.apis.preference.PreferenceDependencies"));
+        driver.findElement(By.id("android:id/checkbox")).click();
+        driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click();
+        String popUpTitle = driver.findElement(By.id("android:id/alertTitle")).getText();
+        driver.findElement(By.id("android:id/edit")).sendKeys("HelloAp");
+        driver.findElement(By.id("android:id/button1")).click();
+
+
+    }
 
 }
