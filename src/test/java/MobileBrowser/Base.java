@@ -34,7 +34,7 @@ public class Base {
     @AfterClass
     public void tearDown()
     {
-        service.stop();
         driver.quit();
+        service.stop();
     }
 }

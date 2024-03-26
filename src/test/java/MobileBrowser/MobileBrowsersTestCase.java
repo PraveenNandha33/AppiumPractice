@@ -10,6 +10,7 @@ public class MobileBrowsersTestCase extends Base{
     @Test
     public void testCase(){
         driver.get("https://www.google.com/");
+
     }
 
 }
